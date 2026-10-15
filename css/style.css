@@ -65,12 +65,13 @@ p { margin: 0 0 1em; }
   display: flex;
   align-items: center;
   transition: background .4s var(--ease), box-shadow .4s var(--ease);
-  background: linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0) 100%);
+  /* 常にダークカラー（スクロール前後・ページ種別に関わらず固定） */
+  background: var(--color-ink);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
 }
 .site-header.solid {
-  background: rgba(247, 244, 238, 0.94);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  background: var(--color-ink);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08);
 }
 .site-header__inner {
   width: 100%; max-width: var(--maxw); margin: 0 auto;
@@ -83,7 +84,6 @@ p { margin: 0 0 1em; }
   background: none; border: none; cursor: pointer; padding: 8px;
 }
 .nav-toggle span { width: 22px; height: 1.5px; background: #fff; transition: background .4s var(--ease); }
-.site-header.solid .nav-toggle span { background: var(--color-ink); }
 
 .logo {
   font-family: var(--font-serif);
@@ -93,16 +93,13 @@ p { margin: 0 0 1em; }
   white-space: nowrap;
   transition: color .4s var(--ease);
 }
-.logo span { white-space: nowrap; }
-.logo-mark { flex-shrink: 0; color: inherit; }
-.site-header.solid .logo { color: var(--color-ink); }
+.logo-img { height: 56px; width: auto; display: block; }
 
 .header-nav { display: flex; align-items: center; gap: 34px; }
 .header-nav a.navlink {
   font-size: 0.86rem; color: #fff; padding: 6px 0; position: relative;
   transition: color .4s var(--ease);
 }
-.site-header.solid .header-nav a.navlink { color: var(--color-ink); }
 .header-nav a.navlink::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: -2px;
   height: 1px; background: currentColor; transform: scaleX(0);
@@ -119,17 +116,13 @@ p { margin: 0 0 1em; }
   transition: all .3s var(--ease);
 }
 .pill-btn:hover { background: #fff; color: var(--color-ink); }
-.site-header.solid .pill-btn { border-color: var(--color-ink); color: var(--color-ink); }
-.site-header.solid .pill-btn:hover { background: var(--color-ink); color: #fff; }
 .pill-btn--store { background: var(--color-gold); border-color: var(--color-gold); color: #fff; }
 .pill-btn--store:hover { background: #b5893f; color: #fff; }
-.site-header.solid .pill-btn--store { background: var(--color-gold); border-color: var(--color-gold); color:#fff; }
-.site-header.solid .pill-btn--store:hover { background: #b5893f; }
 
 /* Mobile nav */
 .mobile-nav {
   position: fixed; inset: 0; z-index: 300;
-  background: var(--color-cream);
+  background: var(--color-ink);
   display: flex; flex-direction: column; padding: 28px;
   transform: translateY(-100%);
   transition: transform .45s var(--ease), visibility 0s .45s;
@@ -144,11 +137,12 @@ p { margin: 0 0 1em; }
 }
 .mobile-nav.open { transform: translateY(0); }
 .mobile-nav__top { display:flex; justify-content:space-between; align-items:center; margin-bottom:48px; }
-.mobile-nav__close { background:none; border:none; font-size:1.6rem; cursor:pointer; color:var(--color-ink); }
+.mobile-nav__close { background:none; border:none; font-size:1.6rem; cursor:pointer; color:#fff; }
 .mobile-nav a {
   font-family: var(--font-serif); font-size: 1.4rem; padding: 16px 0;
-  border-bottom: 1px solid var(--color-line); color: var(--color-ink);
+  border-bottom: 1px solid rgba(255,255,255,0.15); color: #fff;
 }
+.mobile-nav a.logo { border-bottom: none; padding: 0; }
 
 /* =========================================================
    FULL-BLEED HERO
@@ -186,9 +180,11 @@ p { margin: 0 0 1em; }
   text-shadow: 0 2px 14px rgba(0,0,0,0.5);
 }
 .hero-full__logo {
-  font-family: var(--font-serif); font-size: 1.7rem; font-weight: 700;
-  display: flex; align-items: center; gap: 10px;
-  text-shadow: 0 2px 14px rgba(0,0,0,0.5);
+  display: flex; align-items: center;
+}
+.hero-full__logo img {
+  height: clamp(110px, 14vw, 170px); width: auto; display: block;
+  filter: drop-shadow(0 2px 14px rgba(0,0,0,0.5));
 }
 .scroll-cue {
   position: absolute; left: 50%; bottom: 26px; z-index: 2;
@@ -353,7 +349,8 @@ table.spec-table th { width:28%; color: var(--color-ink); font-weight:700; backg
    ========================================================= */
 .site-footer { background: var(--color-ink); color:#c9c3b3; padding: 74px 0 30px; }
 .footer-grid { display:grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.12); }
-.footer-logo { font-family: var(--font-serif); font-size:1.3rem; color:#fff; margin-bottom:14px; letter-spacing:0.1em; display:flex; align-items:center; gap:9px; }
+.footer-logo { margin-bottom:14px; display:flex; align-items:center; }
+.footer-logo-img { height: 76px; width: auto; display: block; }
 .footer-grid p { color:#a9a290; font-size:0.86rem; }
 .footer-col h5 { color:#fff; font-size:0.83rem; letter-spacing:0.1em; margin-bottom:16px; font-weight:700; }
 .footer-col ul { list-style:none; padding:0; margin:0; }
@@ -402,7 +399,7 @@ table.spec-table th { width:28%; color: var(--color-ink); font-weight:700; backg
   .header-right .pill-btn:not(.pill-btn--store) { display: none; }
   .site-header__inner { padding: 0 18px; gap: 12px; }
   .header-left { gap: 12px; }
-  .logo { font-size: 1.12rem; letter-spacing: 0.08em; }
+  .logo-img { height: 48px; }
   .pill-btn--store { padding: 9px 16px; font-size: 0.74rem; }
   .split-photo { grid-template-columns: 1fr; }
   .split-photo__cell { aspect-ratio: 16/10; }
@@ -427,14 +424,14 @@ table.spec-table th { width:28%; color: var(--color-ink); font-weight:700; backg
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .mosaic { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
   .hero-full__vertical { font-size: 1.15rem; }
-  .hero-full__logo { font-size: 1.4rem; }
+  .hero-full__logo img { height: 96px; }
+  .footer-logo-img { height: 64px; }
   .container { padding: 0 22px; }
 }
 @media (max-width: 400px) {
   .site-header__inner { padding: 0 14px; gap: 8px; }
   .header-left { gap: 8px; }
   .nav-toggle { padding: 6px 4px; }
-  .logo { font-size: 1rem; gap: 6px; }
-  .logo .logo-mark { width: 20px; height: 20px; }
+  .logo-img { height: 40px; }
   .pill-btn--store { padding: 8px 13px; font-size: 0.7rem; letter-spacing: 0.02em; }
 }

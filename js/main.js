@@ -14,8 +14,7 @@
 
    data-current : ナビの現在地ハイライト（home / products / about）
    data-variant : ヘッダーの見た目
-                    "hero"  = 透過（トップページ用・スクロールで背景表示）
-                    省略/他 = 不透明で固定（下層ページ用）
+                    ※ヘッダー・フッターは全ページで常にダークカラー（見た目は variant に依存しません）
    data-image-note (footer) : "false" で「掲載写真は仮画像です」の注記を非表示
    ========================================================= */
 (function () {
@@ -31,13 +30,9 @@
     return STORE_ITEMS[key] || STORE_BASE;
   }
 
-  /* ロゴマーク（SVG）*/
-  function logoMark(size) {
-    return '<svg class="logo-mark" width="' + size + '" height="' + size +
-      '" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<circle cx="13" cy="13" r="11.5" stroke="currentColor" stroke-width="1.2"/>' +
-      '<path d="M13 4V22M4 13H22M6.5 6.5L19.5 19.5M19.5 6.5L6.5 19.5" stroke="currentColor" stroke-width="1"/>' +
-      '<circle cx="13" cy="13" r="3" fill="currentColor"/></svg>';
+  /* ロゴ画像（images/logo.png） */
+  function logoImg(cls) {
+    return '<img class="' + cls + '" src="images/logo.png" alt="とうじょう米">';
   }
 
   /* 共通ナビ項目 */
@@ -63,7 +58,7 @@
       '<div class="site-header__inner">' +
         '<div class="header-left">' +
           '<button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span><span></span><span></span></button>' +
-          '<a href="index.html" class="logo">' + logoMark(24) + '<span>とうじょう米</span></a>' +
+          '<a href="index.html" class="logo" aria-label="とうじょう米 ホーム">' + logoImg('logo-img') + '</a>' +
         '</div>' +
         '<nav class="header-nav">' + navLinks + '</nav>' +
         '<div class="header-right">' +
@@ -83,7 +78,7 @@
     return '' +
     '<div class="mobile-nav" id="mobileNav">' +
       '<div class="mobile-nav__top">' +
-        '<a href="index.html" class="logo" style="color:var(--color-ink);">' + logoMark(24) + '<span>とうじょう米</span></a>' +
+        '<a href="index.html" class="logo" aria-label="とうじょう米 ホーム">' + logoImg('logo-img') + '</a>' +
         '<button class="mobile-nav__close" id="mobileNavClose" aria-label="閉じる">×</button>' +
       '</div>' +
       links +
@@ -100,7 +95,7 @@
       '<div class="container">' +
         '<div class="footer-grid">' +
           '<div>' +
-            '<div class="footer-logo">' + logoMark(22) + '<span>とうじょう米</span></div>' +
+            '<div class="footer-logo">' + logoImg('footer-logo-img') + '</div>' +
             '<p>兵庫県特A地区で育てる食用米ブランド。ヒノヒカリとコノホシを、産地から食卓へ。</p>' +
           '</div>' +
           '<div class="footer-col">' +
