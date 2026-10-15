@@ -64,18 +64,18 @@ p { margin: 0 0 1em; }
   height: var(--header-h);
   display: flex;
   align-items: center;
-  /* 初期は透明。スクロール量に応じて --header-alpha (0〜1) が増え、黒く変化する。
-     値は header-scroll.jsがスクロール位置から更新する */
-  --header-alpha: 0;
-  background: rgba(28, 26, 22, var(--header-alpha)); /* = --color-ink */
-  box-shadow: 0 1px 0 rgba(255, 255, 255, calc(var(--header-alpha) * 0.08));
-  /* 背景は変数で連続的に変化させるため transition は付けない */
-  transition: none;
+  /* 初期状態は透明。下にスクロールすると main.js が .is-scrolled を付与し、黒に変化する */
+  background: rgba(28, 26, 22, 0);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+  transition: background-color .4s var(--ease), box-shadow .4s var(--ease);
 }
-/* 既存JSが .solid を付け外ししても挙動が変わらないよう、背景は上書きしない */
-.site-header.solid { }
-/* 下層ページなど、最初から黒固定にしたい場合は <header class="site-header is-fixed-dark"> */
-.site-header.is-fixed-dark { --header-alpha: 1 !important; }
+/* スクロール後：黒（= --color-ink） */
+.site-header.is-scrolled,
+/* 下層ページなど、最初から黒固定にしたい場合（data-variant="dark"） */
+.site-header.is-fixed-dark {
+  background: var(--color-ink);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+}
 .site-header__inner {
   width: 100%; max-width: var(--maxw); margin: 0 auto;
   padding: 0 28px;

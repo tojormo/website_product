@@ -6,7 +6,7 @@
    - ヘッダーのスクロール挙動・モバイルメニュー開閉も担当します。
 
    各 HTML 側の使い方:
-     <div id="site-header" data-current="products" data-variant="solid"></div>
+     <div id="site-header" data-current="products"></div>
         ... ページ本文 ...
      <div id="site-footer"></div>
      <script src="js/config.js"></script>
@@ -14,7 +14,8 @@
 
    data-current : ナビの現在地ハイライト（home / products / about）
    data-variant : ヘッダーの見た目
-                    ※ヘッダー・フッターは全ページで常にダークカラー（見た目は variant に依存しません）
+                   （省略時）… 最上部では透明、下にスクロールすると黒に変化
+                   "dark"   … 最初から黒で固定（ページ上部に写真がないページ用）
    data-image-note (footer) : "false" で「掲載写真は仮画像です」の注記を非表示
    ========================================================= */
 (function () {
@@ -44,9 +45,9 @@
 
   /* ---- ヘッダー ---- */
   function buildHeader(current, variant) {
-    var headerClass = (variant === "hero")
-      ? "site-header"
-      : "site-header solid site-header--static";
+    var headerClass = (variant === "dark")
+        ? "site-header is-fixed-dark"
+        : "site-header";
 
     var navLinks = NAV_ITEMS.map(function (item) {
       var cls = "navlink" + (item.key === current ? " current" : "");
@@ -142,7 +143,7 @@
     var headerRoot = document.getElementById("site-header");
     if (headerRoot) {
       var current = headerRoot.getAttribute("data-current") || "";
-      var variant = headerRoot.getAttribute("data-variant") || "solid";
+      var variant = headerRoot.getAttribute("data-variant") || "";
       headerRoot.outerHTML = buildHeader(current, variant) + buildMobileNav();
     }
     var footerRoot = document.getElementById("site-footer");
@@ -159,14 +160,21 @@
     var mobileNav = document.getElementById("mobileNav");
     var mobileClose = document.getElementById("mobileNavClose");
 
-    function updateHeader() {
-      if (!header) return;
-      if (header.classList.contains("site-header--static")) return;
-      if (window.scrollY > 40) header.classList.add("solid");
-      else header.classList.remove("solid");
-    }
-    updateHeader();
-    window.addEventListener("scroll", updateHeader, { passive: true });
+    /* 何px スクロールしたら黒に切り替えるか */
+      var SCROLL_THRESHOLD = 40;
+      var ticking = false;
+      function updateHeader() {
+        ticking = false;
+        if (!header || header.classList.contains("is-fixed-dark")) return;
+        header.classList.toggle("is-scrolled", window.scrollY > SCROLL_THRESHOLD);
+      }
+      function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateHeader);
+      }
+      updateHeader(); // リロード時・ページ途中から開いた場合にも対応
+      window.addEventListener("scroll", onScroll, { passive: true });
 
     if (toggle && mobileNav) {
       toggle.addEventListener("click", function () { mobileNav.classList.add("open"); });
