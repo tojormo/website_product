@@ -14,6 +14,8 @@ tojo-kome/
 ├── about.html          … 特A地区について
 ├── contact.html        … お問い合わせ
 ├── legal.html          … 利用規約・プライバシー・特商法表記
+├── sitemap.xml         … サイトマップ（検索エンジン向け）
+├── robots.txt          … クローラー向け設定（サイトマップの場所を通知）
 ├── css/
 │   └── style.css       … スタイルシート（変更なし）
 ├── js/
@@ -53,9 +55,16 @@ window.SITE_CONFIG = {
 
 - data-current … ナビの現在地ハイライト（home / products / about）
 - data-variant … hero＝透過ヘッダー（トップ用）、省略時＝不透明固定（下層ページ用）
-- data-image-note="false"（フッター）… 「掲載写真は仮画像です」の注記を非表示
+- data-image-note="false"（フッター）… 写真注記を非表示（公開版では全ページで指定済み）
 
 ## 公開方法
 
 このフォルダ一式をそのままWebサーバーにアップロードしてください。
 ヘッダー・フッターはJavaScriptで描画されるため、JavaScriptを有効にした状態でご利用ください。
+
+## SEO設定について
+
+- 各ページの `<head>` に canonical URL、OGP／Twitterカード、構造化データ（JSON-LD）を設定しています。
+- 基準URLは `https://store.yamadanishiki.com/` です。ドメインを変更する場合は、各HTMLの canonical・og:url・og:image・JSON-LD、および `sitemap.xml`・`robots.txt` のURLをあわせて変更してください。
+- SNSシェア用画像として `images/og-image.jpg`（推奨 1200×630px）を配置してください。
+- ページを追加・更新した際は `sitemap.xml` の `<lastmod>` を更新し、Google Search Console からサイトマップを送信してください。

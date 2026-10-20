@@ -5,7 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>お問い合わせ | とうじょう米</title>
 <meta name="description" content="とうじょう米へのお問い合わせ、ご購入に関するご案内。商品のご購入はオンラインストア（STORES）にて承っております。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://store.yamadanishiki.com/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="とうじょう米">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://store.yamadanishiki.com/contact.html">
+<meta property="og:title" content="お問い合わせ | とうじょう米">
+<meta property="og:description" content="とうじょう米へのお問い合わせ、ご購入に関するご案内。商品のご購入はオンラインストア（STORES）にて承っております。">
+<meta property="og:image" content="https://store.yamadanishiki.com/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="お問い合わせ | とうじょう米">
+<meta name="twitter:description" content="とうじょう米へのお問い合わせ、ご購入に関するご案内。商品のご購入はオンラインストア（STORES）にて承っております。">
+<meta name="twitter:image" content="https://store.yamadanishiki.com/images/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <!-- Google tag (gtag.js) -->
@@ -25,13 +39,55 @@
   .contact-form__fallback{text-align:center;font-size:0.82rem;margin-top:12px;}
   @media (max-width:600px){.contact-form__frame{height:1700px;}}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://store.yamadanishiki.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "お問い合わせ",
+      "item": "https://store.yamadanishiki.com/contact.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "お問い合わせ | とうじょう米",
+  "url": "https://store.yamadanishiki.com/contact.html",
+  "about": {
+    "@type": "Organization",
+    "@id": "https://store.yamadanishiki.com/#organization",
+    "name": "とうじょうＲＭＯ",
+    "url": "https://tojormo.com",
+    "telephone": "+81-795-46-2020",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "JP",
+      "addressRegion": "兵庫県",
+      "addressLocality": "加東市",
+      "streetAddress": "岡本247-4"
+    }
+  }
+}
+</script>
 </head>
 <body>
 <!-- ===== 共通ヘッダー（js/main.js が生成） ===== -->
 <div id="site-header" data-current=""></div>
 
 <section class="page-banner">
-  <img src="images/farmer.jpg" alt="生産者（仮画像）">
+  <img fetchpriority="high" src="images/farmer.jpg" alt="生産者">
   <div class="page-banner__inner">
     <p class="breadcrumb"><a href="index.html">ホーム</a> ／ お問い合わせ</p>
     <h1>お問い合わせ</h1>
@@ -61,7 +117,7 @@
 </section>
 
 <!-- ===== 共通フッター（js/main.js が生成） ===== -->
-<div id="site-footer"></div>
+<div id="site-footer" data-image-note="false"></div>
 
 <script src="js/config.js"></script>
 <script src="js/main.js"></script>

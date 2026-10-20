@@ -13,6 +13,18 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://store.yamadanishiki.com/hinohikari.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://store.yamadanishiki.com/konohoshi.html</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://store.yamadanishiki.com/about.html</loc>
     <lastmod>2026-10-20</lastmod>
     <changefreq>monthly</changefreq>
