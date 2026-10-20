@@ -16,7 +16,6 @@
    data-variant : ヘッダーの見た目
                    （省略時）… 最上部では透明、下にスクロールすると黒に変化
                    "dark"   … 最初から黒で固定（ページ上部に写真がないページ用）
-   data-image-note (footer) : "false" で「掲載写真は仮画像です」の注記を非表示
    ========================================================= */
 (function () {
   "use strict";
@@ -89,8 +88,7 @@
   }
 
   /* ---- フッター ---- */
-  function buildFooter(showImageNote) {
-    var note = showImageNote ? '<span>掲載写真は準備中のため仮画像です。</span>' : '';
+  function buildFooter() {
     return '' +
     '<footer class="site-footer">' +
       '<div class="container">' +
@@ -124,7 +122,7 @@
         '</div>' +
         '<div class="footer-bottom">' +
           '<span>Copyright © 2026 とうじょう米. All Rights Reserved.</span>' +
-          note +
+          '<span class="footer-operator">運営団体：<a href="https://tojormo.com" target="_blank" rel="noopener">とうじょうＲＭＯ</a></span>' +
         '</div>' +
       '</div>' +
     '</footer>';
@@ -148,8 +146,7 @@
     }
     var footerRoot = document.getElementById("site-footer");
     if (footerRoot) {
-      var showNote = footerRoot.getAttribute("data-image-note") !== "false";
-      footerRoot.outerHTML = buildFooter(showNote);
+      footerRoot.outerHTML = buildFooter();
     }
   }
 

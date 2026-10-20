@@ -361,6 +361,8 @@ table.spec-table th { width:28%; color: var(--color-ink); font-weight:700; backg
 .footer-col a { color:#c9c3b3; font-size:0.87rem; }
 .footer-col a:hover { color:#fff; }
 .footer-bottom { padding-top:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; font-size:0.77rem; color:#8c8574; }
+.footer-bottom a { color:#c9c3b3; text-decoration:underline; text-underline-offset:3px; transition: color .3s var(--ease); }
+.footer-bottom a:hover { color:#fff; }
 
 /* =========================================================
    Inner page banner
