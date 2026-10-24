@@ -12,7 +12,7 @@
      <script src="js/config.js"></script>
      <script src="js/main.js"></script>
 
-   data-current : ナビの現在地ハイライト（home / products / about）
+   data-current : ナビの現在地ハイライト（home / products / about / yamadanishiki）
    data-variant : ヘッダーの見た目
                    （省略時）… 最上部では透明、下にスクロールすると黒に変化
                    "dark"   … 最初から黒で固定（ページ上部に写真がないページ用）
@@ -39,7 +39,8 @@
   var NAV_ITEMS = [
     { key: "home",     href: "index.html",    label: "ホーム" },
     { key: "products", href: "products.html", label: "商品一覧" },
-    { key: "about",    href: "about.html",    label: "特A地区について" }
+    { key: "about",    href: "about.html",    label: "特A地区について" },
+    { key: "yamadanishiki", href: "tojo-yamadanishiki.html", label: "東条産山田錦" }
   ];
 
   /* ---- ヘッダー ---- */
@@ -109,6 +110,7 @@
             '<h5>サイト</h5>' +
             '<ul>' +
               '<li><a href="about.html">特A地区について</a></li>' +
+              '<li><a href="tojo-yamadanishiki.html">東条産山田錦</a></li>' +
               '<li><a href="contact.html">お問い合わせ</a></li>' +
             '</ul>' +
           '</div>' +
