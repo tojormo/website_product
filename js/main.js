@@ -39,8 +39,9 @@
   var NAV_ITEMS = [
     { key: "home",     href: "index.html",    label: "ホーム" },
     { key: "products", href: "products.html", label: "商品一覧" },
-    { key: "about",    href: "about.html",    label: "特A地区について" },
-    { key: "yamadanishiki", href: "tojo-yamadanishiki.html", label: "東条産山田錦" }
+    { key: "yamadanishiki", href: "tojo-yamadanishiki.html", label: "東条産山田錦とは" },
+    { key: "about",    href: "about.html",    label: "特A地区について" }
+
   ];
 
   /* ---- ヘッダー ---- */
