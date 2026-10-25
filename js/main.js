@@ -102,8 +102,6 @@
           '<div class="footer-col">' +
             '<h5>商品</h5>' +
             '<ul>' +
-              '<li><a href="hinohikari.html">ヒノヒカリ</a></li>' +
-              '<li><a href="konohoshi.html">コノホシ</a></li>' +
               '<li><a href="' + STORE_BASE + '" target="_blank" rel="noopener">オンラインストア（STORES）</a></li>' +
             '</ul>' +
           '</div>' +
