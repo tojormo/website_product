@@ -123,7 +123,7 @@
         '</div>' +
         '<div class="footer-bottom">' +
           '<span>Copyright © 2026 とうじょう米. All Rights Reserved.</span>' +
-          '<span class="footer-operator">運営団体：<a href="https://tojormo.com" target="_blank" rel="noopener">とうじょうＲＭＯ</a></span>' +
+          '<span class="footer-operator">運営団体：<a href="https://tojormo.com" target="_blank" rel="noopener">とうじょうRMO</a></span>' +
         '</div>' +
       '</div>' +
     '</footer>';

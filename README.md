@@ -9,8 +9,7 @@
 tojo-kome/
 ├── index.html          … トップページ
 ├── products.html       … 商品一覧
-├── hinohikari.html     … ヒノヒカリ 商品ページ
-├── konohoshi.html      … コノホシ 商品ページ
+├── tojo-yamadanishiki.html … 東条産山田錦とは
 ├── about.html          … 特A地区について
 ├── contact.html        … お問い合わせ
 ├── legal.html          … 利用規約・プライバシー・特商法表記
